@@ -59,10 +59,15 @@ setup_pkgs()
 setup_work()
 {
     cd $gitdir
-    git clone $repo
-    pip install -r requirements.txt
-    pip install -r reqs_optional/requirements_optional_langchain.txt
-    pip install -r reqs_optional/requirements_optional_gpt4all.txt
+    if [ ! -d $workdir ]; then
+	git clone $repo
+    fi
+    if [ -d $workdir ]; then
+	cd $workdir
+	pip install -r requirements.txt
+	pip install -r reqs_optional/requirements_optional_langchain.txt
+	pip install -r reqs_optional/requirements_optional_gpt4all.txt
+    fi
     
 }
 
