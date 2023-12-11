@@ -124,6 +124,6 @@ setup_python_venv
 #setup_python $requirements
 
 
-setup_work | tee $logfile
+setup_work
 
 exit 0
