@@ -76,3 +76,12 @@ setup_python $requirements
 setup_dirs
 setup_git_dirs
 
+setup_work | tee $logfile
+
+
+
+
+
+
+
+
