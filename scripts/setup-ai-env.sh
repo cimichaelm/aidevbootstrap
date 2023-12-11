@@ -57,6 +57,7 @@ setup_python()
 
 setup_pkgs()
 {
+    export DEBIAN_FRONTEND=noninteractive
     sudo apt-get update -y
     sudo apt-get install -y aptitude
     sudo aptitude update -y
