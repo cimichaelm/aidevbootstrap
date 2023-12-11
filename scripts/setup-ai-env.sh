@@ -108,7 +108,7 @@ setup_miniconda()
     ~/miniconda3/bin/conda init bash
     ~/miniconda3/bin/conda init zsh
 
-    conda create -n py3k anaconda python=3
+    conda create -n py3k anaconda python=3 -y
 
     conda activate py3k
 }
