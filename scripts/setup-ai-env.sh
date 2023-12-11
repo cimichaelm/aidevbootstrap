@@ -15,6 +15,7 @@ defaults()
     repo="https://github.com/h2oai/h2ogpt.git"
     logdir=$h/log
     logfile=$logdir/setup.log
+    remoteuser="ubuntu"
 }
 
 setup_dirs()
@@ -56,6 +57,13 @@ setup_pkgs()
     sudo apt autoremove -y
 }
 
+setup_system()
+{
+    sudo usermod -a -G docker $remoteuser
+
+    newgrp docker
+}
+
 	
 setup_work()
 {
@@ -75,6 +83,7 @@ setup_work()
 defaults
 
 setup_pkgs
+setup_system
 
 setup_python_venv
 setup_python $requirements
