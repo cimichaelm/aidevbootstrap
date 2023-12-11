@@ -53,7 +53,7 @@ setup_pkgs()
     sudo aptitude update -y
     sudo aptitude upgrade -y
     sudo aptitude install -y python3-pip python3-venv net-tools nginx
-    sudo apt autoremove
+    sudo apt autoremove -y
 }
 
 	
