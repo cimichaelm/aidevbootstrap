@@ -16,7 +16,7 @@ defaults()
     logdir=$h/log
     logfile=$logdir/setup.log
     remoteuser="ubuntu"
-    pkglist="apt-transport-https ca-certificates curl software-properties-common python3-pip python3-venv net-tools nginx"
+    pkglist="apt-transport-https ca-certificates curl software-properties-common python3-pip python3-venv net-tools nginx nvidia-container-toolkit-base nvidia-container-runtime"
 }
 
 setup_dirs()
