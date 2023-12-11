@@ -19,7 +19,7 @@ defaults()
 load_python_venv()
 {
     if [ -d $HOME/$venv ]; then
-	source $HOME/$venv/bin/activate
+	. $HOME/$venv/bin/activate
     fi
 }
 
