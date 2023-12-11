@@ -16,6 +16,7 @@ defaults()
     logdir=$h/log
     logfile=$logdir/setup.log
     remoteuser="ubuntu"
+    pkglist="apt-transport-https ca-certificates curl software-properties-common python3-pip python3-venv net-tools nginx"
 }
 
 setup_dirs()
@@ -53,7 +54,7 @@ setup_pkgs()
     sudo apt-get install -y aptitude
     sudo aptitude update -y
     sudo aptitude upgrade -y
-    sudo aptitude install -y python3-pip python3-venv net-tools nginx
+    sudo aptitude install -y $pkglist
     sudo apt autoremove -y
 }
 
