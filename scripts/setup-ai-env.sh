@@ -9,7 +9,7 @@ defaults()
     instdirflags="-d -m 755 -o ${u} -g ${u}"
     venv="py3env03"
     requirements="conf/requirements.txt"
-    popopts=""
+    pipopts=""
     basedir=$HOME
     gitdir=$basedir/git
     workdir=$gitdir/h2ogpt
@@ -110,7 +110,7 @@ setup_miniconda()
 
     conda create -n py3k anaconda python=3
 
-conda activate py3k
+    conda activate py3k
 }
 
 defaults
@@ -123,8 +123,6 @@ setup_miniconda
 setup_python_venv
 #setup_python $requirements
 
-setup_dirs
-setup_git_dirs
 
 setup_work | tee $logfile
 

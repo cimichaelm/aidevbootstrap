@@ -12,7 +12,8 @@ defaults()
 
 run_build()
 {
-    $bindir/setup-ai-env.sh
+    $bindir/setup-fs.sh
+    $bindir/setup-ai-env.sh    
 }
 
 defaults
