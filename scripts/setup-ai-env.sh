@@ -93,10 +93,4 @@ setup_git_dirs
 
 setup_work | tee $logfile
 
-
-
-
-
-
-
-
+exit 0
