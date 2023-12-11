@@ -5,6 +5,7 @@
 defaults()
 {
     h=$HOME
+    bindir=$HOME/bin
     instdirflags="-d -m 755 -o ${u} -g ${u}"
     venv="py3env03"
     requirements="conf/requirements.txt"
