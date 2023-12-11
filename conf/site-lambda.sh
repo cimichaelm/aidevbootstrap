@@ -1,0 +1,2 @@
+site=lambda
+remoteuser="ubuntu"

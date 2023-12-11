@@ -23,6 +23,15 @@ load_python_venv()
     fi
 }
 
+enable_python_env()
+{
+}
+
+build_db()
+{
+    python src/make_db.py --add_if_exists=True
+}
+
 run_app()
 {
     if [ -d $workdir ]; then
