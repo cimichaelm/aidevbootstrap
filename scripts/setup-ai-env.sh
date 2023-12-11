@@ -13,7 +13,7 @@ defaults()
     gitdir=$basedir/git
     workdir=$gitdir/h2ogpt
     repo="https://github.com/h2oai/h2ogpt.git"
-    logfile=$h/log
+    logdir=$h/log
     logfile=$logdir/setup.log
 }
 
