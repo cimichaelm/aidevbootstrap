@@ -34,6 +34,12 @@ setup_python_venv()
 {
     if [ ! -d $HOME/$venv ]; then
 	python3 -m venv $HOME/$venv
+    fi
+}
+
+enable_python_venv()
+{
+    if [ -d $HOME/$venv ]; then
 	. $HOME/$venv/bin/activate
     fi
 }
@@ -74,6 +80,11 @@ setup_work()
     fi
     if [ -d $workdir ]; then
 	cd $workdir
+
+	conda activate py3k
+	
+	pip install librosa
+	
 	export PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/cu118"	
 	pip install -r requirements.txt
 	pip install -r reqs_optional/requirements_optional_langchain.txt
@@ -94,6 +105,10 @@ setup_miniconda()
     rm -rf ~/miniconda3/miniconda.sh
     ~/miniconda3/bin/conda init bash
     ~/miniconda3/bin/conda init zsh
+
+    conda create -n py3k anaconda python=3
+
+conda activate py3k
 }
 
 defaults
@@ -104,7 +119,7 @@ setup_system
 setup_miniconda
 
 setup_python_venv
-setup_python $requirements
+#setup_python $requirements
 
 setup_dirs
 setup_git_dirs
