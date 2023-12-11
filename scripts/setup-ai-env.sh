@@ -6,7 +6,7 @@ defaults()
 {
     h=$HOME
     bindir=$HOME/bin
-    instdirflags="-d -m 755 -o ${u} -g ${u}"
+    instdirflags="-d -m 755"
     venv="py3env03"
     requirements="conf/requirements.txt"
     pipopts=""
