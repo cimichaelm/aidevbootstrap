@@ -74,9 +74,14 @@ setup_work()
     fi
     if [ -d $workdir ]; then
 	cd $workdir
+	export PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/cu118"	
 	pip install -r requirements.txt
 	pip install -r reqs_optional/requirements_optional_langchain.txt
 	pip install -r reqs_optional/requirements_optional_gpt4all.txt
+
+	# Only Linux:
+	pip install https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.2.19+cu118-cp310-cp310-manylinux_2_31_x86_64.whl
+
     fi
     
 }
