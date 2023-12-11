@@ -62,7 +62,7 @@ setup_system()
 {
     sudo usermod -a -G docker $remoteuser
 
-    newgrp docker
+    #newgrp docker
 }
 
 	
