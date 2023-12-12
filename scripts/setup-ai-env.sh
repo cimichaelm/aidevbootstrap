@@ -115,7 +115,7 @@ setup_miniconda()
 
     reload_bashrc
     
-    conda create -n py3k anaconda python=3 -y
+    bash -c conda create -n py3k anaconda python=3 -y
 
     conda activate py3k
 }
