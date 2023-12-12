@@ -99,6 +99,11 @@ setup_work()
     
 }
 
+reload_bashrc()
+{
+    . $HOME/.bashrc
+}
+
 setup_miniconda()
 {
     mkdir -p ~/miniconda3
@@ -108,6 +113,8 @@ setup_miniconda()
     ~/miniconda3/bin/conda init bash
     ~/miniconda3/bin/conda init zsh
 
+    reload_bashrc
+    
     conda create -n py3k anaconda python=3 -y
 
     conda activate py3k
