@@ -64,6 +64,8 @@ setup_pkgs()
     sudo aptitude upgrade -y
     sudo aptitude install -y $pkglist
     sudo apt autoremove -y
+    sudo systemctl disable nginx
+    sudo systemctl stop nginx
 }
 
 setup_system()
