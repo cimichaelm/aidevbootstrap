@@ -8,6 +8,7 @@ defaults()
     basedir=$HOME
     gitdir=$basedir/git
     repo="https://github.com/cimichaelm/aidevbootstrap.git"
+    branch="develop"
 }
 
 
@@ -18,6 +19,7 @@ run_bootstrap()
 
     git clone https://github.com/cimichaelm/aidevbootstrap.git
     cd audevbootstrap
+    git checkout $branch
     make install
 }
 
