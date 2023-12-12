@@ -17,7 +17,7 @@ save_data()
 {
     if [ -d $workdir ]; then
 	cd $workdir
-	tar czf $archivefile 
+	tar czf $archivefile $filelist
     else
 	echo "ERROR: $workdir does not exist"
     fi
