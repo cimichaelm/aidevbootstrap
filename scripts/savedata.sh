@@ -9,7 +9,7 @@ defaults()
     gitdir=$basedir/git
     workdir=$gitdir/h2ogpt
     datadir=$HOME/shareddata01
-    archivefile=$HOME/archive.tgz
+    archivefile=$datadir/archive.tgz
     filelist=".env docker-compose2.yml user_path db_dir_UserData"
 }
 
