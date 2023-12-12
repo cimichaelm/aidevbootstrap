@@ -14,11 +14,15 @@ defaults()
 
 run_bootstrap()
 {
-    mkdir $gitdir
+    if [ ! -d $gitdir ]; then
+	mkdir $gitdir
+    fi
     cd $gitdir
 
-    git clone https://github.com/cimichaelm/aidevbootstrap.git
-    cd audevbootstrap
+    if [ ! -d aidevbootstrap ]; then
+	git clone https://github.com/cimichaelm/aidevbootstrap.git
+    fi
+    cd aidevbootstrap
     git checkout $branch
     make install
 }
