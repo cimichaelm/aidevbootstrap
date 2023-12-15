@@ -1,5 +1,5 @@
-#!/bin/sh
-# file: setup-ai-env.sh
+#!/bin/bash
+# file: setup-work.sh
 #
 #
 defaults()
@@ -56,30 +56,29 @@ setup_python()
     fi
 }
 
-setup_pkgs()
+setup_work()
 {
-    export DEBIAN_FRONTEND=noninteractive
-    sudo apt-get update -y
-    sudo apt-get install -y aptitude
-    sudo aptitude update -y
-    sudo aptitude upgrade -y
-    sudo aptitude install -y $pkglist
-    sudo apt autoremove -y
-    sudo systemctl disable nginx
-    sudo systemctl stop nginx
-}
+    cd $gitdir
+    if [ ! -d $workdir ]; then
+	git clone $repo
+    fi
+    if [ -d $workdir ]; then
+	cd $workdir
 
-setup_system()
-{
-    sudo usermod -a -G docker $remoteuser
-
-    #newgrp docker
-}
-
+	conda activate py3k
 	
-run_setup_work()
-{
-    $bindir/setup-work.sh
+	pip install librosa
+	
+	export PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/cu118"	
+	pip install -r requirements.txt
+	pip install -r reqs_optional/requirements_optional_langchain.txt
+	pip install -r reqs_optional/requirements_optional_gpt4all.txt
+
+	# Only Linux:
+	pip install https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.2.19+cu118-cp310-cp310-manylinux_2_31_x86_64.whl
+
+    fi
+    
 }
 
 reload_bashrc()
@@ -94,15 +93,7 @@ run_setup_conda()
 
 defaults
 
-setup_pkgs
-setup_system
 
-run_setup_conda
-
-setup_python_venv
-#setup_python $requirements
-
-
-run_setup_work
+setup_work
 
 exit 0
